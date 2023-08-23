@@ -84,6 +84,43 @@ Identifier = [:jletter:] [:jletterdigit:]
         return gotoken;
     }
     
+    /* Complex Arithmetic Operators */
+    "++" {
+        System.out.println("Operador incremento en uno");
+        GoToken gotoken = new GoToken("PLUSPLUS", yytext(), yyline+1, yycolumn);
+        return gotoken;
+    }
+    "--" {
+        System.out.println("Operador decremento en uno");
+        GoToken gotoken = new GoToken("MINUSMINUS", yytext(), yyline+1, yycolumn);
+        return gotoken;
+    }
+    "+=" {
+        System.out.println("Operador incremento y asignacion");
+        GoToken gotoken = new GoToken("PLUSEQ", yytext(), yyline+1, yycolumn);
+        return gotoken;
+    }
+    "-=" {
+        System.out.println("Operador decremento y asignacion");
+        GoToken gotoken = new GoToken("MINUSEQ", yytext(), yyline+1, yycolumn);
+        return gotoken;
+    }
+    "*=" {
+        System.out.println("Operador multiplicacion y asignacion");
+        GoToken gotoken = new GoToken("MULTEQ", yytext(), yyline+1, yycolumn);
+        return gotoken;
+    }
+    "/=" {
+        System.out.println("Operador divicion y asignacion");
+        GoToken gotoken = new GoToken("DIVEQ", yytext(), yyline+1, yycolumn);
+        return gotoken;
+    }
+    "%=" {
+        System.out.println("Operador modulo y asignacion");
+        GoToken gotoken = new GoToken("MODEQ", yytext(), yyline+1, yycolumn);
+        return gotoken;
+    }
+
     /* Arithmetic Operators */
     "+" {
         System.out.println("Operador suma");
@@ -142,6 +179,7 @@ Identifier = [:jletter:] [:jletterdigit:]
         GoToken gotoken = new GoToken("CLBRACKETS", yytext(), yyline+1, yycolumn);
         return gotoken;
     }
+    
 }
 
 /* Fin seccion de reglas*/
