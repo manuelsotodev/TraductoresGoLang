@@ -1,7 +1,8 @@
 package main
 
-import paquete
+import "fmt"
 
 func main() {
-    
+    fmt.Println("Hello, World!")
+    var num1 = 22
 }

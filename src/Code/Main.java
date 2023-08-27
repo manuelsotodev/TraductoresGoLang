@@ -23,7 +23,7 @@ public class Main {
             
             while ( true ) {
                 GoToken gotoken = goLangLexer.yylex();
-                System.out.println(gotoken.toString());
+                System.out.println(gotoken.toString() + "\n");
             }
         }
         catch ( Exception ex ) {
