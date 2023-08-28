@@ -17,21 +17,23 @@ public class Main {
 //        String flexFile = "C:/Users/bruno/OneDrive/Documentos/NetBeansProjects/GoLang/src/Code/GoLangLexer.flex";
 //        lexerGenerator(flexFile);
         try {
-            String fileName = "C:/Users/bruno/OneDrive/Documentos/NetBeansProjects/GoLang/src/Code/HelloWorld.txt";
-            BufferedReader bufferReader = new BufferedReader(new FileReader(fileName));
-            GoLangLexer goLangLexer = new GoLangLexer(bufferReader);
-            
-            while ( true ) {
-                GoToken gotoken = goLangLexer.yylex();
-                System.out.println(gotoken.toString() + "\n");
-            }
+            lexerGenerator(" C:/Users/bruno/OneDrive/Documentos/NetBeansProjects/GoLang/src/Code/GoLangLexer.flex");
+//            String fileName = "C:/Users/bruno/OneDrive/Documentos/NetBeansProjects/GoLang/src/Code/HelloWorld.txt";
+//            BufferedReader bufferReader = new BufferedReader(new FileReader(fileName));
+//            GoLangLexer goLangLexer = new GoLangLexer(bufferReader);
+//            
+//            while ( true ) {
+//                GoToken gotoken = goLangLexer.yylex();
+//                System.out.println(gotoken.toString() + "\n");
+//            }
         }
         catch ( Exception ex ) {
             System.out.println(ex.toString());
         }
     }
     
-//    public static void lexerGenerator(String path) {
-//        File file = new File(path);
-//    }
+    public static void lexerGenerator(String path) {
+        File file = new File(path);
+        jflex.Main.generate(file);
+    }
 }

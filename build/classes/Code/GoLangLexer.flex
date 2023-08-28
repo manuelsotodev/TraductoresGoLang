@@ -45,6 +45,7 @@ Identificador = {Letra} [{Letra}|{Digito}]*
 WhiteSpace = {LineTerminator} | [ \t\f]
 String = \".*\"
 Character = \'[\w]\'
+/* (^[0-9]{1,3}$|^[0-9]{1,3}\.[0-9]{1,3}$) */
 Integer = [0-9]+
 Float = [0-9]+\.[0-9]+
 Boolean = [true|false]
@@ -296,6 +297,43 @@ Identifier = [:jletter:] [:jletterdigit:]
     "!" {
         System.out.println("Operador Not");
         GoToken gotoken = new GoToken("NOT", yytext(), yyline+1, yycolumn);
+        return gotoken;
+    }
+
+    /* Complex Arithmetic Operators */
+    "++" {
+        System.out.println("Operador incremento en uno");
+        GoToken gotoken = new GoToken("PLUSPLUS", yytext(), yyline+1, yycolumn);
+        return gotoken;
+    }
+    "--" {
+        System.out.println("Operador decremento en uno");
+        GoToken gotoken = new GoToken("MINUSMINUS", yytext(), yyline+1, yycolumn);
+        return gotoken;
+    }
+    "+=" {
+        System.out.println("Operador incremento y asignacion");
+        GoToken gotoken = new GoToken("PLUSEQ", yytext(), yyline+1, yycolumn);
+        return gotoken;
+    }
+    "-=" {
+        System.out.println("Operador decremento y asignacion");
+        GoToken gotoken = new GoToken("MINUSEQ", yytext(), yyline+1, yycolumn);
+        return gotoken;
+    }
+    "*=" {
+        System.out.println("Operador multiplicacion y asignacion");
+        GoToken gotoken = new GoToken("MULTEQ", yytext(), yyline+1, yycolumn);
+        return gotoken;
+    }
+    "/=" {
+        System.out.println("Operador divicion y asignacion");
+        GoToken gotoken = new GoToken("DIVEQ", yytext(), yyline+1, yycolumn);
+        return gotoken;
+    }
+    "%=" {
+        System.out.println("Operador modulo y asignacion");
+        GoToken gotoken = new GoToken("MODEQ", yytext(), yyline+1, yycolumn);
         return gotoken;
     }
 
